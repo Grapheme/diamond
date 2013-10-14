@@ -115,14 +115,14 @@ $(window).on("load", function() {
 			pool.push( particles.shift() );
 
 		particle = pool.length ? pool.pop() : new Particle();
-		particle.init( x, y, random( 20,  100) );
+		particle.init( x, y, random( 20,  250) );
 
 		particle.wander = random( 0.5, 2.0 );
 		particle.color = random( COLOURS );
 		particle.drag = random( 0.9, 0.99 );
 
 		particle.alphaforce = random(-0.1, 0.1);
-		particle.patternImage = diamonds[0];//diamonds[Math.floor(diamonds.length * Math.random())];
+		particle.patternImage = diamonds[Math.floor(diamonds.length * Math.random())];
 
 		theta = random( TWO_PI );
 		force = random( 2, 8 );
@@ -153,7 +153,7 @@ $(window).on("load", function() {
 
 		demo.translate(-0.5 * diamondImage.width, -0.5 * diamondImage.height);
 		demo.translate(0.5 * demo.width, 0.5 * demo.height);
-		demo.drawImage(diamondImage, 0, 0);
+		//demo.drawImage(diamondImage, 0, 0);
 		demo.restore();
 
 		//demo.globalCompositeOperation  = 'lighter';
@@ -180,8 +180,8 @@ $(window).on("load", function() {
 
 	socket.on("actuate", function(data) {
 		mousemove([ {
-			x : (0.5 + 0.5 * ( data.x - 0.5) ) * demo.width,
-			y : (0.5 + 0.5 * ( data.y - 0.5) ) * demo.height
+			x : data.x  * demo.width,
+			y : data.y  * demo.height
 		}]);
 	});
 });
