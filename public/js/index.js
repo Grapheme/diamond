@@ -1,5 +1,8 @@
 $(window).on("load", function() {
-	 var socket = io.connect("./");
+
+	var socketAddress = location.origin + location.pathname.substring(0, location.pathname.lastIndexOf("/")+1);
+
+	 var socket = io.connect(socketAddress);
 
 	var diamondImage = $("#diamond")[0];
 
