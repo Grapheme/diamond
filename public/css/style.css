@@ -1,0 +1,10 @@
+html, body {
+	font-family: 'Play', sans-serif;
+	background: black;
+	margin: 0;
+	overflow: hidden;
+}
+
+#container {
+	z-index: 2;
+}
