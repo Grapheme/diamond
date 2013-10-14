@@ -1,5 +1,5 @@
 $(window).on("load", function() {
-	var socket = io.connect();
+	var socket = io.connect("./");
 
 	var demo = Sketch.create({
 		container: document.getElementById( 'container' )
