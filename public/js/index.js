@@ -160,7 +160,7 @@ $(window).on("load", function() {
 
 		demo.translate(-0.5 * diamondImage.width, -0.5 * diamondImage.height);
 		demo.translate(0.5 * demo.width, 0.5 * demo.height);
-		//demo.drawImage(diamondImage, 0, 0);
+		demo.drawImage(diamondImage, 0, 0);
 		demo.restore();
 
 		//demo.globalCompositeOperation  = 'lighter';
