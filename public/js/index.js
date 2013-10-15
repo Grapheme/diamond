@@ -109,9 +109,9 @@ $(window).on("load", function() {
 		// Set off some initial particles.
 		var i, x, y;
 
-		for ( i = 0; i < 20; i++ ) {
-			x = ( demo.width * 0.5 ) + random( -100, 100 );
-			y = ( demo.height * 0.5 ) + random( -100, 100 );
+		for ( i = 0; i < 50; i++ ) {
+			x = ( demo.width * 0.5 ) + random( -200, 200 );
+			y = ( demo.height * 0.5 ) + random( -200, 200 );
 			demo.spawn( x, y );
 		}
 	};
@@ -122,7 +122,7 @@ $(window).on("load", function() {
 			pool.push( particles.shift() );
 
 		particle = pool.length ? pool.pop() : new Particle();
-		particle.init( x, y, random( 20,  250) );
+		particle.init( x, y, random( 20,  100) );
 
 		particle.wander = random( 0.5, 2.0 );
 		particle.color = random( COLOURS );
@@ -180,10 +180,6 @@ $(window).on("load", function() {
 			for ( j = 0; j < max; j++ ) demo.spawn( touch.x, touch.y );
 		}
 	};
-
-	demo.mousemove = function() {
-		//mousemove(demo.touches);
-	}
 
 	socket.on("actuate", function(data) {
 		mousemove([ {

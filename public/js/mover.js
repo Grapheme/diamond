@@ -14,12 +14,17 @@ $(window).on("load", function() {
 
 
 
-	demo.mousemove = function() {
-		var touch = demo.touches[0];
+	var mouseHandler = function() {
+		for(var i = 0; i < demo.touches.length; ++i) {
+			var touch = demo.touches[i];
 
-		socket.emit("move", {
-			x : touch.x / demo.width, 
-			y : touch.y / demo.height
-		});
-	}
+			socket.emit("move", {
+				x : touch.x / demo.width, 
+				y : touch.y / demo.height
+			});
+		}
+	};
+
+	demo.mousemove = mouseHandler;
+	demo.mousedown = mouseHandler;
 });

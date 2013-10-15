@@ -8,3 +8,13 @@ html, body {
 #container {
 	z-index: 2;
 }
+
+#score-board {
+	z-index: 3;
+	position: absolute;
+	bottom : 0;
+	left : 50%;
+	margin-left: -505px;
+
+
+}
