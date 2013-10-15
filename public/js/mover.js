@@ -12,9 +12,28 @@ $(window).on("load", function() {
 		container: document.getElementById( 'container' )
 	});
 
+	var touches = [{x : 0, y : 0}];
+	demo.draw = function() {
+		for(var i = 0; i < demo.touches.length; ++i) {
+			var touch = demo.touches[i];
+
+			demo.save();
+			demo.fillStyle = "#ffffff";
+			demo.beginPath();
+			demo.arc(touch.x, touch.y, 30, 0, Math.PI*2, true); 
+			demo.closePath();
+			demo.fill();
+			demo.restore();
+		}
+	};
+
+	demo.update = function() {
+
+	};
 
 
 	var mouseHandler = function() {
+
 		for(var i = 0; i < demo.touches.length; ++i) {
 			var touch = demo.touches[i];
 

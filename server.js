@@ -16,16 +16,17 @@ app.use(express.static(__dirname + "/public"));
 
 server.listen(port);
 
+var parser = new uaparser();
+
 app.get("/", function(req, res) {
-	var parser = new uaparser();
 	var ua = req.headers['user-agent'];   
 	var result = parser.setUA(ua).getResult();
 
 	if(result.device.type) {
-		return res.sendfile(__dirname + "/public/mover.html");
-	} 
-
-	return res.sendfile(__dirname + "/public/index.html");
+		res.sendfile(__dirname + "/public/mover.html");
+	} else {
+		res.sendfile(__dirname + "/public/index.html");
+	}
 });
 
 
